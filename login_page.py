@@ -1,5 +1,6 @@
 #Login Page
 from tkinter import *
+from tkinter import StringVar, Entry
 
 
 #main window
@@ -25,18 +26,20 @@ def login():
 
 
 
-
-# entries for username and password
 #Username
 username = Label(text="Username:", bg="orange")
 username.pack()
-username_entry = Entry()
+username_var = StringVar()
+username_entry = Entry(textvariable=username_var)
 username_entry.pack()
+
+
 
 #Password
 password = Label(text="Password:", bg="orange")
 password.pack()
-password_entry = Entry(show="*")
+password_var = StringVar()
+password_entry = Entry(textvariable=password_var,show="*")
 password_entry.pack()
 
 """
@@ -64,6 +67,7 @@ register_btn.pack()
 # Log in status
 login_label = Label(window, text="", bg="orange")
 login_label.pack()
+
 
 # Makes it all work (VERY IMPORTANT)
 window.mainloop()
