@@ -6,7 +6,7 @@ from tkinter import messagebox
 #main window
 window = tk.Tk()
 window.title("SwiftRide - Customer Register")
-window.geometry("300x200")
+window.geometry("300x300")
 window.config(bg="Orange")
 
 #functionality
