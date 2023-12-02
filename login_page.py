@@ -6,7 +6,7 @@ from tkinter import StringVar, Entry
 #main window
 window = Tk()
 window.title("SwiftRide - Login")
-window.geometry("300x300")
+window.geometry("300x200")
 window.config(bg="Orange")
 
 #gets login info by defining login and .get
