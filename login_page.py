@@ -1,7 +1,8 @@
-#Login Page
+#Need to make a 'cover' page
+#login page
 from tkinter import *
 from tkinter import StringVar, Entry
-
+import subprocess
 
 #main window
 window = Tk()
@@ -9,64 +10,43 @@ window.title("SwiftRide - Login")
 window.geometry("300x200")
 window.config(bg="Orange")
 
-#gets login info by defining login and .get
+
+#login info
 def login():
     username = username_entry.get()
     password = password_entry.get()
-  
-
-  
-#admin sign in/ '==' is a comparison (CASE SENSITIVE)
-    if username == "admin" and password == "password":
-        login_label.config(text="Login Successful!", fg="green")
-
-    else:
-        login_label.config(text="Login Failed! Please Register!", fg="red")
 
 
 
-
-#Username
+#username
 username = Label(text="Username:", bg="orange")
 username.pack()
 username_var = StringVar()
 username_entry = Entry(textvariable=username_var)
 username_entry.pack()
 
-
-
-#Password
+#password
 password = Label(text="Password:", bg="orange")
 password.pack()
 password_var = StringVar()
-password_entry = Entry(textvariable=password_var,show="*")
+password_entry = Entry(textvariable=password_var, show="*")
 password_entry.pack()
 
-"""
-#Role selection btn or field
-role_btn = Button(text="Customer")
-role_btn.pack()
-role_btn2 = Button(text="Admin")
-role_btn2.pack()
-role_btn3 = Button(text="Driver")
-role_btn3.pack()
-Needs to be formatted next to each other i dont know how to :(
-"""
 
+#Button funct
+#Clicking Login
+def open_file():
+    subprocess.Popen(['python', 'user_selection_login.py'])
 
-# Log in button
-login_btn = Button(text="Login", command=login)
+login_btn = Button(text="Login", command=open_file)
 login_btn.pack()
 
-"""
-#Register btn
-register_btn = Button(text="Register", command=register)
-register_btn.pack()
-"""
+#clicking register
+def open_file():
+    subprocess.Popen(['python', 'user_selection_register.py'])
 
-# Log in status
-login_label = Label(window, text="", bg="orange")
-login_label.pack()
+regi_btn = Button(text="Register", command=open_file)
+regi_btn.pack()
 
 
 # Makes it all work (VERY IMPORTANT)
