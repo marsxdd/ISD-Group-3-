@@ -2,6 +2,7 @@
 #Basically Customer Register page witha tweak
 import tkinter as tk
 from tkinter import messagebox
+import subprocess
 #messagebox gives pop ups!(?)
 
 #main window
@@ -21,39 +22,39 @@ def register():
     password = password_entry.get()
     confirm_password = password_con_entry.get()
 
-#Password functionality  
+#password confir
     if password != confirm_password: #!= Comparison op
-        messagebox.showerror("Error", "Passwords do not match! Try Again")
+        messagebox.showerror(title="Error!")
     else:
-        messagebox.showinfo("Registration", "Registration successful! :D")
+        messagebox.showinfo(title="Success!")
 
 
 
-# First Name
+#first name
 fname = tk.Label(text="First Name:", bg="orange")
 fname.pack()
 fname_entry = tk.Entry()
 fname_entry.pack()
 
-# Last Name
+#last name
 lname = tk.Label(text="Last Name:", bg="orange")
 lname.pack()
 lname_entry = tk.Entry()
 lname_entry.pack()
 
-# Address
+#ddress
 address = tk.Label(text="Address:", bg="orange")
 address.pack()
 address_entry = tk.Entry()
 address_entry.pack()
 
-#Email
+#email
 email = tk.Label(text="Email:", bg="orange")
 email.pack()
 email_entry = tk.Entry()
 email_entry.pack()
 
-#Phone Number
+#phone number
 pnumber = tk.Label(text="Phone Number:", bg="orange")
 pnumber.pack()
 pnumber_entry = tk.Entry()
@@ -65,32 +66,41 @@ vehicle_number.pack()
 vehicle_number_entry = tk.Entry()
 vehicle_number_entry.pack()
 
-#Password
+#password
 password = tk.Label(text="Password:", bg="orange")
 password.pack()
 password_entry = tk.Entry(show="*")
 password_entry.pack()
 
-#Confirm Password
+#password confi
 password_confirm = tk.Label(text="Confirm Password:", bg="orange")
 password_confirm.pack()
 password_con_entry = tk.Entry(show="*")
 password_con_entry.pack()
 
-#Register Button
+#regi btn
 register_btn = tk.Button(text="Register", command=register, activebackground="green")
 register_btn.pack()
 
-# Already have an account?
+#haveanacc
 login = tk.Label(text="Already have an account?" , bg="orange")
 login.pack()
 login_arrows = tk.Label(text="↓↓↓" , bg="orange")
 login_arrows.pack()
-"""LOG IN BUTTON HERE"""
 
-"""
-↑↑↑↑↑↑↑↑Need to make button up here to get back to login page(?)↑↑↑↑
-"""
+#open another .py file;to connect
+def open_file():
+    subprocess.Popen(['python', 'login_page.py'])
+
+login_btn = tk.Button(text="login", command=open_file)
+login_btn.pack()
+
+#back btn
+def open_file():
+    subprocess.Popen(['python', 'user_selection_register.py'])
+
+back_btn = tk.Button(text="Back", command=open_file)
+back_btn.pack(side= tk.BOTTOM, pady=5)
 
 #Dont forget this
 window.mainloop()
