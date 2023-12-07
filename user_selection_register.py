@@ -9,7 +9,7 @@ window.geometry("300x200")
 window.config(bg="Orange")
 
 #Label
-label = Label(text="Who's Registering?",activebackground="red")
+label = Label(text="Who's Registering?",bg="orange")
 label.pack()
 
 #Button funct
