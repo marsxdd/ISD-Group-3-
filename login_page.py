@@ -48,6 +48,12 @@ def open_file():
 regi_btn = Button(text="Register", command=open_file)
 regi_btn.pack()
 
+#back btn
+def open_file():
+    subprocess.Popen(['python', 'homepage.py'])
+
+back_btn = Button(text="Back", command=open_file)
+back_btn.pack(side=BOTTOM, pady=5)
 
 # Makes it all work (VERY IMPORTANT)
 window.mainloop()
