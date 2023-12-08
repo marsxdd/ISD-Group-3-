@@ -3,6 +3,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import subprocess
+from sqlite3 import *
 #messagebox gives pop ups!(?)
 
 #main window
@@ -21,6 +22,17 @@ def register():
     vehicle_number = vehicle_number_entry.get()
     password = password_entry.get()
     confirm_password = password_con_entry.get()
+
+    try:
+        conn= connect('swiftride.db')
+        conn.cursor()
+        conn.execute(f'INSERT INTO TaxiDriver(FirstName, LastName, Email, Password, LicensePlate, PhoneNumber)'
+                         f'VALUES (?,?,?,?,?,?,?);',(first_name, last_name, email, password, vehicle_number, phone_number))
+        conn.commit()
+    except Exception as e:
+        raise e
+    finally:
+        conn.close()
 
 #password confir
     if password != confirm_password: #!= Comparison op
