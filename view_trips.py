@@ -13,14 +13,20 @@ window.config(bg="Orange")
 # Function to search for a booking by ID
 def search_booking():
     booking_id = search_entry.get()
-    #search for id in database?
-    # display details when found
-
+    try:
+        conn= connect('swiftride.db')
+        conn.cursor()
+        conn.execute(f'SELECT FROM Customer(CustomerID, FirstName, LastName, Email, Password, Address, PhoneNumber, Paymentmethod)'
+                         f'VALUES (?,?,?,?,?,?,?,?);',(1, first_name, last_name, email, password, address, phone_number, payment_method))
+        conn.commit()
+    except Exception as e:
+        raise e
+    finally:
+        conn.close()
 #cancel trip
 def cancel_trip():
     booking_id = cancel_entry.get()
-    #check if the booking ID exists in database
-    #when found cancel the trip and remove the booking
+
 
 
 
