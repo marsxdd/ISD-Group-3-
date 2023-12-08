@@ -1,4 +1,3 @@
-#Need to make a 'cover' page
 #login page
 from tkinter import *
 from tkinter import StringVar, Entry
@@ -48,7 +47,6 @@ def open_file():
 regi_btn = Button(text="Register", command=open_file)
 regi_btn.pack()
 
-#back btn
 def open_file():
     subprocess.Popen(['python', 'homepage.py'])
 
