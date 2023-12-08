@@ -1,6 +1,9 @@
 #Admin Page after log in
 import tkinter as tk
 import subprocess
+from sqlite3 import *
+
+
 
 #main window
 window = tk.Tk()
