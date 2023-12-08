@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
 import subprocess
+from sqlite3 import *
 def confirm_trip():
     first_name = first_name_entry.get()
     booking_id = random.randint(1000, 9999)  # Randomized booking ID
@@ -10,6 +11,8 @@ def confirm_trip():
     pickup_time = pickup_time_entry.get()
     booking_date = booking_date_entry.get()
     payment_method = payment_method_entry.get()
+
+
 
 #receipt
     receipt_window = tk.Toplevel(bg="orange")
