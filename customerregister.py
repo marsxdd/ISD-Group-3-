@@ -1,8 +1,9 @@
 # Customer Register page
 import tkinter as tk
 from tkinter import messagebox
-# messagebox gives pop ups!(?)
 import subprocess
+from sqlite3 import *
+
 
 
 # main window
@@ -23,18 +24,18 @@ def register():
     password = password_entry.get()
     confirm_password = password_con_entry.get()
 
-#database connection
-        try:
+    try:
         conn= connect('swiftride.db')
         conn.cursor()
-        conn.execute(f'INSERT INTO Customer(CustomerID, FirstName, LastName, Email, Password, Address, PhoneNumber, Paymentmethod)'
-                         f'VALUES (?,?,?,?,?,?,?,?);',(1, first_name, last_name, email, password, address, phone_number, payment_method)).
+        conn.execute(f'INSERT INTO Customer(FirstName, LastName, Email, Password, Address, PhoneNumber, Paymentmethod)'
+                         f'VALUES (?,?,?,?,?,?,?);',(first_name, last_name, email, password, address, phone_number, payment_method))
         conn.commit()
     except Exception as e:
         raise e
     finally:
         conn.close()
-        
+
+
     #password func
     if password != confirm_password:  # != Comparison op
         messagebox.showerror(title="Error!")
@@ -47,6 +48,7 @@ fname = tk.Label(text="First Name:", bg="orange")
 fname.pack()
 fname_entry = tk.Entry()
 fname_entry.pack()
+
 
 #last name
 lname = tk.Label(text="Last Name:", bg="orange")
@@ -90,11 +92,11 @@ password_confirm.pack()
 password_con_entry = tk.Entry(show="*")
 password_con_entry.pack()
 
-#egibtn
+#register btn
 register_btn = tk.Button(text="Register", command=register, activebackground="green")
 register_btn.pack()
 
-#haveacc
+#haveanaccount
 login = tk.Label(text="Already have an account?", bg="orange")
 login.pack()
 login_arrows = tk.Label(text="↓↓↓", bg="orange")
@@ -113,5 +115,7 @@ def open_file():
 back_btn = tk.Button(text="Back", command=open_file)
 back_btn.pack(side= tk.BOTTOM, pady=5)
 
+
 # Dont forget this
 window.mainloop()
+
