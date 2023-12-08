@@ -1,5 +1,4 @@
-#requires SwiftRide.png no idea how to upload pictures
-#homepage
+#main.py
 from tkinter import *
 import subprocess
 from tkinter import font
@@ -20,6 +19,7 @@ mainmenu = Menu(frame)
 def open_file():
     subprocess.Popen(['python', 'login_page.py'])
 mainmenu.add_command(label="Login", command=open_file)
+
 
 def open_file():
     subprocess.Popen(['python', 'user_selection_register.py'])
