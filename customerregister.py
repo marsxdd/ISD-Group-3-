@@ -23,6 +23,18 @@ def register():
     password = password_entry.get()
     confirm_password = password_con_entry.get()
 
+#database connection
+        try:
+        conn= connect('swiftride.db')
+        conn.cursor()
+        conn.execute(f'INSERT INTO Customer(CustomerID, FirstName, LastName, Email, Password, Address, PhoneNumber, Paymentmethod)'
+                         f'VALUES (?,?,?,?,?,?,?,?);',(1, first_name, last_name, email, password, address, phone_number, payment_method)).
+        conn.commit()
+    except Exception as e:
+        raise e
+    finally:
+        conn.close()
+        
     #password func
     if password != confirm_password:  # != Comparison op
         messagebox.showerror(title="Error!")
